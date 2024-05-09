@@ -106,6 +106,7 @@ def generate_validator_keystores(plan, mnemonic, participants):
         raw_secret_permissions_cmd = (
             "chmod 0600 -R " + output_dirpath + RAW_SECRETS_DIRNAME
         )
+        plan.print(generate_keystores_cmd)
         all_sub_command_strs.append(generate_keystores_cmd)
         all_sub_command_strs.append(teku_permissions_cmd)
         all_sub_command_strs.append(raw_secret_permissions_cmd)

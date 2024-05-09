@@ -62,6 +62,8 @@ def generate_el_cl_genesis_data(
         genesis_generation_config_yml_template, template_data
     )
 
+    plan.print(template_data)
+
     genesis_values_and_dest_filepath = {}
 
     genesis_values_and_dest_filepath[
@@ -76,7 +78,7 @@ def generate_el_cl_genesis_data(
 
     genesis = plan.run_sh(
         description="Creating genesis",
-        run="cp /opt/values.env /config/values.env && ./entrypoint.sh all && mkdir /network-configs && mv /data/custom_config_data/* /network-configs/",
+        run="cp /opt/values.env /config/values.env && ./entrypoint.sh all && mkdir /network-configs && mv /data/custom_config_data/* /network-configs/ && mv /config/values.env /network-configs/",
         image=image,
         files=files,
         store=[
